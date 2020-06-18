@@ -2,15 +2,15 @@ pipeline {
 	agent any
 	
 	tools {
-		jdk "Java-1.8"
-		maven "Maven-3.5.3"
+		jdk "Java_Home"
+		maven "Maven_Home"
 	}
 	stages {
 	   stage ('Compile Stage') {
 
 		steps {
 		   
-  		   withMaven(maven : 'Maven-3.5.3') {
+  		   withMaven(maven : 'Maven_Home') {
 			bat 'mvn clean compile'
 		    }
 		}
@@ -20,7 +20,7 @@ pipeline {
 		
 		steps {
 
-		   withMaven(maven : 'Maven-3.5.3') {
+		   withMaven(maven : 'Maven_Home') {
 			bat 'mvn test'
 		   }
 		}
@@ -30,7 +30,7 @@ pipeline {
 
 		steps {
 
-		   withMaven(maven : 'Maven-3.5.3') {
+		   withMaven(maven : 'Maven_Home') {
 			bat 'mvn package'
 		   }
 		}
